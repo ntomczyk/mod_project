@@ -7,6 +7,7 @@ from pageobjects.base_page import BasePage
 
 class ClothesFilters(BasePage):
 
+    FILTERS = (By.CSS_SELECTOR, ".actions-container")
     SIZE = (By.CSS_SELECTOR, ".filter.nestedmultiselect .text")
     FILTER_WRAPPER_PANEL = (By.CSS_SELECTOR, ".filter-wrapper-panel")
     FILTER_SIZE_CATEGORY_OPTIONS = (By.CSS_SELECTOR, ".filter-size-category-options")
@@ -29,6 +30,7 @@ class ClothesFilters(BasePage):
     def choose_filter_size(self):
         """Choose filter size."""
 
+        self.element_is_visible(self.FILTERS)
         self.click_on(self.SIZE)
 
         allure.attach(
@@ -57,7 +59,7 @@ class ClothesFilters(BasePage):
         Check checkbox of given size
         :param given_size: str, Basic sizes in format XXS, 7XL, Detailed sizes in format XS:XS or M:38
         """
-        time.sleep(3)
+
         locator = f"[for='checkbox-damskie_gorne_czesci_garderoby:{given_size}']"
         size = (By.CSS_SELECTOR, locator)
         self.element_is_visible(self.FILTER_SIZE_CATEGORY_OPTIONS)
@@ -74,6 +76,7 @@ class ClothesFilters(BasePage):
     def choose_filter_offer(self):
         """Choose filter offer."""
 
+        self.element_is_visible(self.FILTERS)
         self.click_on(self.OFFER)
 
         allure.attach(

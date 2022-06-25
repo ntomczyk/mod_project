@@ -9,6 +9,7 @@ class WomenClothes(BasePage):
 
 
     WOMEN_CLOTHES_TOPS_AND_SHIRTS = (By.CSS_SELECTOR, ".tree li:nth-of-type(6) .link")
+    TITLE = (By.CSS_SELECTOR, ".title._heading-strong")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -24,3 +25,10 @@ class WomenClothes(BasePage):
             name="click_on_women_tops_and_shirts",
             attachment_type=AttachmentType.PNG,
         )
+
+    @allure.step("Get text of title - clothes type")
+    def get_text_of_title_clothes_types(self):
+        """Get text of title - clothes type on top of filters"""
+
+        return self.get_text_of(self.TITLE)
+
