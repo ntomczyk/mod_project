@@ -1,11 +1,10 @@
-import time
 import allure
 from allure_commons.types import AttachmentType
 from selenium.webdriver.common.by import By
-from pageobjects.base_page import BasePage
+from pageobjects.common_actions import CommonActions
 
 
-class ClothesFilters(BasePage):
+class ClothesFilters(CommonActions):
 
     FILTERS = (By.CSS_SELECTOR, ".actions-container")
     SIZE = (By.CSS_SELECTOR, ".filter.nestedmultiselect .text")
@@ -43,7 +42,6 @@ class ClothesFilters(BasePage):
     def choose_upper_clothing(self):
         """In filter size choose upper clothing."""
 
-
         self.element_is_visible(self.FILTER_WRAPPER_PANEL)
         self.click_on(self.UPPER_CLOTHING)
 
@@ -76,6 +74,7 @@ class ClothesFilters(BasePage):
     def choose_filter_offer(self):
         """Choose filter offer."""
 
+        self.wait_for_global_loader()
         self.element_is_visible(self.FILTERS)
         self.click_on(self.OFFER)
 
@@ -102,6 +101,7 @@ class ClothesFilters(BasePage):
     def click_on_apply_button(self):
         """Apply chosen filters clicking on button apply."""
 
+        self.wait_for_global_loader()
         self.click_on(self.APPLY_BUTTON)
 
         allure.attach(

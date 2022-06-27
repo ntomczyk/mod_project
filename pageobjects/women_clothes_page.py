@@ -6,8 +6,6 @@ from pageobjects.base_page import BasePage
 
 class WomenClothes(BasePage):
 
-
-
     WOMEN_CLOTHES_TOPS_AND_SHIRTS = (By.CSS_SELECTOR, ".tree li:nth-of-type(6) .link")
     TITLE = (By.CSS_SELECTOR, ".title._heading-strong")
 
@@ -31,4 +29,3 @@ class WomenClothes(BasePage):
         """Get text of title - clothes type on top of filters"""
 
         return self.get_text_of(self.TITLE)
-

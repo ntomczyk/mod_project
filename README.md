@@ -1,17 +1,18 @@
 # mod_project
 # Project requirements:
+# Setup for linux
 
 - Step 1: Install/upgrade Python version to:
 
 - Python 3.10.5
 
-- Step 2: Install pip for Python 3, there was issue with pip for python 3.10 on ubuntu 20.04 
+- Step 2: Install pip for Python 3, you can have problem with pip for python 3.10 on ubuntu 20.04 
 
 ```
 curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10
 ```
 
-- Step 3: Install virtualenv, for linux:
+- Step 3: Install virtualenv:
 
 ```
 sudo apt install -y python3-venv
@@ -63,13 +64,13 @@ deactivate
 - After setting runner restart Pycharm.
 
 # Load environment variables from .env
-- In **.default.env** there are all the variables needed to run the tests. 
-- **It is required to set all variables in your own .env and add them to 
+- In **.modivo.pl.env** there are all the variables needed to run the tests. 
+- **It is required to set all variables in your own .env regarding of language version and add them to 
 .gitignore before running the tests**
 - You can specify the ENV credentials on the command line, it will override existing one:
 
 ```
-pytest --envfile .dev1.env
+pytest --envfile .modivo.pl.env
 ```
 
 # Running tests:
@@ -125,7 +126,7 @@ pytest tests/test_order_process.py -vv
 
 # Reports
 
-- Xml report is generated automatically - command from pytest.ini
+- Xml and allure reports are generated automatically - command from pytest.ini
 
 # Allure report 
 

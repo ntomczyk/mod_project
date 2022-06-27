@@ -136,3 +136,4 @@ dmypy.json
 allure-reports
 reports/xml_reports/report.xml
 
+/reports/

@@ -42,7 +42,8 @@ class MainPage(BasePage):
     @allure.step("Click on women in top menu")
     def click_on_women_in_top_menu(self):
         """Go to women items."""
-
+        ff = (By.CSS_SELECTOR, ".header-main-category-menu")
+        self.element_is_visible(ff)
         self.element_is_visible(self.MENU_WOMEN)
         self.click_on(self.MENU_WOMEN)
 
@@ -54,7 +55,7 @@ class MainPage(BasePage):
 
     @allure.step("Close modal message if exist")
     def close_modal_message_if_exists(self):
-        if self.check_if_exists(locator=self.MARKETING_APPROVALS, time_in_seconds=3):
+        if self.check_if_exists(locator=self.MARKETING_APPROVALS, time_in_seconds=10):
             self.click_on(self.MARKETING_APPROVALS_CLOSE)
         else:
             pass
